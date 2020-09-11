@@ -26,7 +26,7 @@ func ClearDuplicatePart(contents []string, keepMinLen int) []string {
 		}
 		rContents = append(rContents, tmpContent)
 	}
-	return contents
+	return rContents
 }
 
 func Clear(contents []string, minContentLen int) []string {
