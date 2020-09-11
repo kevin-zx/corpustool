@@ -9,6 +9,9 @@ func ClearDoubleBreak(content string) string {
 	for strings.Contains(content, "\n\n") {
 		content = strings.ReplaceAll(content, "\n\n", "\n")
 	}
+	for strings.Contains(content,"  "){
+		content = strings.ReplaceAll(content, "  ", " ")
+	}
 	return content
 }
 
@@ -30,11 +33,12 @@ func ClearDuplicatePart(contents []string, keepMinLen int) []string {
 }
 
 func Clear(contents []string, minContentLen int) []string {
-	if len(contents) > 1 {
-		contents = ClearDuplicatePart(contents, minContentLen)
-	}
 	for i := range contents {
 		contents[i] = ClearDoubleBreak(contents[i])
 	}
+	if len(contents) > 1 {
+		contents = ClearDuplicatePart(contents, minContentLen)
+	}
+
 	return contents
 }
